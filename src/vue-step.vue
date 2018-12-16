@@ -15,7 +15,7 @@
         :style="horizontalItemWidth"
         @click="selectItem(index)"
       >
-        <label class="v-step-item-label" :style="{ fontSize: fontSize + 'px' }">
+        <label class="v-step-item-label">
           {{ label }}
         </label>
         <div
@@ -34,7 +34,7 @@ export default {
   name: 'vue-step',
   props: {
     fontSize:{
-       type: Number
+       type: Number,
        default: 14 
     },
     nowStep: {
@@ -141,7 +141,8 @@ export default {
 }
 .v-step-item-label {
   color: #666;
-  text-transform: capitalize
+  text-transform: capitalize;
+  font-size:14px;
 }
 .v-step-item-number {
   width: 18px;
