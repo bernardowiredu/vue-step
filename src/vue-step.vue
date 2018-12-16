@@ -15,7 +15,7 @@
         :style="horizontalItemWidth"
         @click="selectItem(index)"
       >
-        <label class="v-step-item-label">
+        <label class="v-step-item-label" :style="{ fontSize: fontSize + 'px' }">
           {{ label }}
         </label>
         <div
@@ -33,6 +33,10 @@
 export default {
   name: 'vue-step',
   props: {
+    fontSize:{
+       type: Number
+       default: 14 
+    },
     nowStep: {
       type: Number,
       required: true
@@ -108,7 +112,7 @@ export default {
 .v-step-warp-horizontal .v-step-progress-bg {
   position: absolute;
   width: 100%;
-  height: 4px;
+  height: 6px;
   bottom: 22px;
   background-color: #ddd;
 }
@@ -136,14 +140,14 @@ export default {
   text-align: center;
 }
 .v-step-item-label {
-  font-size: 12px;
   color: #666;
+  text-transform: capitalize
 }
 .v-step-item-number {
   width: 18px;
   height: 18px;
   line-height: 18px;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 50%;
   color: #666;
   background-color: #ddd;
