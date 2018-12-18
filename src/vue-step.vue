@@ -15,7 +15,7 @@
         :style="horizontalItemWidth"
         @click="selectItem(index)"
       >
-        <label :class="[`v-step-item-label-${fontType}`]">
+        <label class="v-step-item-label">
           {{ label }}
         </label>
         <div
@@ -33,10 +33,6 @@
 export default {
   name: 'vue-step',
   props: {
-    fontType:{
-       type: String,
-       default: 'large' 
-    },
     nowStep: {
       type: Number,
       required: true
@@ -48,6 +44,10 @@ export default {
     activeColor: {
       type: String,
       default: '#1fb11d'
+    },
+    progressColor:{
+       type: String,
+       default: '#ffffff'
     },
     styleType: {
       type: String,
@@ -88,7 +88,14 @@ export default {
       if (index < this.nowStep) {
         style = {
           'background-color': this.activeColor,
-          'color': '#fff'
+          'color': '#fff',
+        }
+      }
+      if (this.nowStep == index + 1){
+        style = {
+            'background-color': this.progressColor,
+            'color': '#555',
+             'border': '1px solid #1fb11d'
         }
       }
       return style
@@ -112,7 +119,7 @@ export default {
 .v-step-warp-horizontal .v-step-progress-bg {
   position: absolute;
   width: 100%;
-  height: 6px;
+  height: 4px;
   bottom: 22px;
   background-color: #ddd;
 }
@@ -139,34 +146,19 @@ export default {
   justify-content: space-around;
   text-align: center;
 }
-.v-step-item-label-small {
+.v-step-item-label {
+  font-size: 14px;
   color: #666;
-  text-transform: capitalize;
-  font-size:13px;
-}
-.v-step-item-label-large {
-  color: #666;
-  text-transform: capitalize;
-  font-size:14px;
-}
-.v-step-item-label-xlarge {
-  color: #666;
-  text-transform: capitalize;
-  font-size:15px;
-}
-.v-step-item-label-xxlarge {
-  color: #666;
-  text-transform: capitalize;
-  font-size:16px;
 }
 .v-step-item-number {
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  font-size: 14px;
+  width: 19px;
+  height: 19px;
+  line-height: 19px;
+  font-size: 13px;
   border-radius: 50%;
   color: #666;
   background-color: #ddd;
+
 }
 .v-step-warp-horizontal .v-step-item-label {
   display: block;
