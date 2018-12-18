@@ -95,7 +95,13 @@ export default {
         style = {
             'background-color': this.progressColor,
             'color': '#555',
-             'border': '1px solid #1fb11d'
+             'border': '2px solid #1fb11d'
+        }
+      }
+      if (this.nowStep < index + 1){
+        style = {
+            
+             'border': '2px solid #ddd'
         }
       }
       return style
@@ -153,11 +159,12 @@ export default {
 .v-step-item-number {
   width: 19px;
   height: 19px;
-  line-height: 19px;
+  line-height: 18px;
   font-size: 13px;
   border-radius: 50%;
   color: #666;
   background-color: #ddd;
+  border: 2px solid #1FB11D; 
 
 }
 .v-step-warp-horizontal .v-step-item-label {
