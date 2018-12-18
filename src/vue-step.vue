@@ -159,7 +159,7 @@ export default {
 .v-step-item-number {
   width: 19px;
   height: 19px;
-  line-height: 18px;
+  line-height: 19px;
   font-size: 13px;
   border-radius: 50%;
   color: #666;
